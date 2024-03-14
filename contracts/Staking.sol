@@ -26,13 +26,13 @@ contract Staking {
         owner = msg.sender;
         currentPositionId = 0;
 
-        tiers[30] = 700;
-        tiers[90] = 1000;
-        tiers[180] = 1200;
+        tiers[90] = 200;
+        tiers[180] = 500;
+        tiers[365] = 1200;
 
-        lockPeriods.push(30);
         lockPeriods.push(90);
         lockPeriods.push(180);
+        lockPeriods.push(365);
     }
 
     function stakeEther(uint numDays) external payable {

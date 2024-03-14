@@ -3,12 +3,14 @@ import react, {useEffect, useState} from 'react'
 import {ethers} from 'ethers';
 import artifacts from './artifacts/contracts/Staking.sol/Staking.json'
 import { Bank, PiggyBank, Coin } from "react-bootstrap-icons";
-import Logo from './Logo';
+// import Logo from './Logo';
+import images from "./assets/images";
+// import Logo from images.aah;
 
 import NavBar from "./components/NavBar";
 import StakeModal from "./components/StakeModal";
 
-const CONTRACT_ADDRESS = "0x49dB88F9DFBa3F95c16348849Df682147Ba6D440"
+const CONTRACT_ADDRESS = "0xa952a96B0F77E659bc0B670B20572DeafD68B4de"
 
 function App() {
 
@@ -31,10 +33,14 @@ function App() {
 
     useEffect(() => {
         const onLoad = async () => {
-            const provider = await new ethers.providers.Web3Provider(window.ethereum)
+            // const aah_rpc_url = 'https://rpc.c4ex.net'; 
+            // const provider = new ethers.providers.JsonRpcProvider(aah_rpc_url);
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+
             setProvider(provider)
 
-            const contract = await new ethers.Contract(
+            const contract = new ethers.Contract(
                 CONTRACT_ADDRESS,
                 artifacts.abi
             )
@@ -122,35 +128,17 @@ function App() {
             <div className="appBody">
                 <div className="marketContainer">
                     <div className="subContainer">
-            <span className="logoImg">
-              <Logo />
-            </span>
-                        <span className="marketHeader">
-              Ethereum Market
+            {/* <span className="logoImg">
+              <images.aah />
+            </span> */}
+            <span className="marketHeader">
+              All About Health Market
             </span>
                     </div>
 
                     <div className="row">
                         <div className="col-md-4">
-                            <div onClick={() => openStakingModal(30, '7%')} className="marketOption">
-                                <div className="glyphContainer hoverButton">
-                                   <span className="glyph">
-                                       <Coin />
-                                   </span>
-                                </div>
-                                <div className="optionData">
-                                    <span>
-                                       1 Month
-                                   </span>
-                                    <span className="optionPercent">
-                                       7%
-                                   </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-md-4">
-                            <div onClick={() => openStakingModal(90, '10%')} className="marketOption">
+                            <div onClick={() => openStakingModal(90, '2%')} className="marketOption">
                                 <div className="glyphContainer hoverButton">
                                    <span className="glyph">
                                        <Coin />
@@ -161,14 +149,14 @@ function App() {
                                        3 Month
                                    </span>
                                     <span className="optionPercent">
-                                       10%
+                                       2%
                                    </span>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-4">
-                            <div onClick={() => openStakingModal(180, '12%')} className="marketOption">
+                            <div onClick={() => openStakingModal(180, '5%')} className="marketOption">
                                 <div className="glyphContainer hoverButton">
                                    <span className="glyph">
                                        <Coin />
@@ -177,6 +165,24 @@ function App() {
                                 <div className="optionData">
                                     <span>
                                        6 Month
+                                   </span>
+                                    <span className="optionPercent">
+                                       5%
+                                   </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-4">
+                            <div onClick={() => openStakingModal(365, '12%')} className="marketOption">
+                                <div className="glyphContainer hoverButton">
+                                   <span className="glyph">
+                                       <Coin />
+                                   </span>
+                                </div>
+                                <div className="optionData">
+                                    <span>
+                                       12 Month
                                    </span>
                                     <span className="optionPercent">
                                        12%
@@ -219,9 +225,9 @@ function App() {
                 { assets.length > 0 && assets.map((a, idx) => (
                     <div className="row">
                         <div className="col-md-2">
-                            <span className="stakedLogoImg">
+                            {/* <span className="stakedLogoImg">
                                  <Logo  className=""/>
-                            </span>
+                            </span> */}
                         </div>
                         <div className="col-md-2">
                             {a.percentInterest} %

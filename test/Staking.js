@@ -34,13 +34,13 @@ describe("Staking", function () {
 
         it('sets up tiers and lockperiods', async function () {
 
-            expect(await staking.lockPeriods(0)).to.equal(30);
-            expect(await staking.lockPeriods(1)).to.equal(90);
-            expect(await staking.lockPeriods(2)).to.equal(180);
+            expect(await staking.lockPeriods(0)).to.equal(90);
+            expect(await staking.lockPeriods(1)).to.equal(180);
+            expect(await staking.lockPeriods(2)).to.equal(365);
 
-            expect(await staking.tiers(30)).to.equal(700);
-            expect(await staking.tiers(90)).to.equal(1000);
-            expect(await staking.tiers(180)).to.equal(1200);
+            expect(await staking.tiers(90)).to.equal(200);
+            expect(await staking.tiers(180)).to.equal(500);
+            expect(await staking.tiers(365)).to.equal(1200);
         });
 
     });
@@ -108,7 +108,7 @@ describe("Staking", function () {
              expect(position.walletAddress).to.equal(owner.address)
              expect(position.createdDate).to.equal(block.timestamp  )
              expect(position.unlockDate).to.equal(block.timestamp + (86400 * 90))
-             expect(position.percentInterest).to.equal(700)
+             expect(position.percentInterest).to.equal(200)
              expect(position.weiStaked).to.equal(transferAmount)
              expect(position.weiInterest).to.equal(ethers.BigNumber.from(transferAmount).mul(1000).div(10000))
              expect(position.open).to.equal(true)
@@ -166,7 +166,7 @@ describe("Staking", function () {
 
                 expect(
                     lockPeriods.map(v => Number(v._hex))
-                ).to.eql([30,90,180,100,30]);
+                ).to.eql([90,180,365,100,30]);
             });
     });
 

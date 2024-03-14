@@ -1,0 +1,29 @@
+cd /home/dev/www/dap.c4ex.net
+yarn add --dev hardhat
+
+cd /home/dev/www/dap.c4ex.net
+npx hardhat run ./scripts/aah_deploy.js
+Compiled 1 Solidity file successfully (evm target: istanbul).
+contract staking deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+
+
+npx hardhat run --network aah scripts/1_deploy.js
+contract staking deployed to: 0x11784b8bfbA1c7ea5a75cb4Ec3f870cF78C316d0 by 0x23d21a4556D7C13d77B993d58B76614bbd827b86
+contract staking deployed to: 0xa952a96B0F77E659bc0B670B20572DeafD68B4de by 0x23d21a4556D7C13d77B993d58B76614bbd827b86
+------------------------------------------------------
+const connectWallet = async () => {
+    const accounts= await window.ethereum.request({method: 'eth_requestAccounts'});
+    console.log(accounts)
+}
+
+
+##########################################
+cd /home/dev/www/dap.c4ex.net/client
+yarn start
+##########################################
+provider is undefined
+
+
+90 --> 2%
+180 --> 5%
+365 --> 12%
