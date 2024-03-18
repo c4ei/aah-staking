@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-aah": "npx hardhat run scripts/aah_deploy.js --network aah",
     "compile": "npx hardhat compile",
@@ -29,6 +30,7 @@
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "chai": "^4.3.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
@@ -38,6 +40,7 @@
     "eslint-plugin-promise": "^5.2.0",
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.9",
+    "express": "^4.18.3",
     "hardhat-gas-reporter": "^1.0.8",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-beta.13",

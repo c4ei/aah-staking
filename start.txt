@@ -27,3 +27,10 @@ provider is undefined
 90 --> 2%
 180 --> 5%
 365 --> 12%
+
+cd /home/dev/www/dap.c4ex.net/client
+pm2 start npm --name "dap.c4ex.net" -- start
+
+-- 2024-03-18
+cd /home/dev/www/dap.c4ex.net
+pm2 start server.js --name "dap.c4ex.net"
